@@ -23,7 +23,7 @@
   <meta name="description" content="Great Code. Great Life.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Bobbie&#39;s Notes">
-<meta property="og:url" content="https://wbb.me/archives/2020/index.html">
+<meta property="og:url" content="https://wbb.me/page/2/index.html">
 <meta property="og:site_name" content="Bobbie&#39;s Notes">
 <meta property="og:description" content="Great Code. Great Life.">
 <meta property="og:locale" content="en_US">
@@ -31,20 +31,20 @@
 <meta property="article:tag" content="BOBO,Bobbie,Ui,Design,Linux">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://wbb.me/archives/2020/">
+<link rel="canonical" href="https://wbb.me/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
+    isHome : true,
     isPost : false,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | Bobbie's Notes</title>
+  <title>Bobbie's Notes</title>
   
 
 
@@ -162,71 +162,185 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wbb.me/view/Linux-Common-Command.html">
 
-  
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 7 posts in total. Keep on posting.</span>
-      </div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BOBBIE WANG">
+      <meta itemprop="description" content="Great Code. Great Life.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bobbie's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/view/Linux-Common-Command.html" class="post-title-link" itemprop="url">Linux常用命令-完整手册</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-11-06 23:00:40" itemprop="dateCreated datePublished" datetime="2018-11-06T23:00:40+08:00">2018-11-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-12 00:51:45" itemprop="dateModified" datetime="2019-10-12T00:51:45+08:00">2019-10-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+          <p>最近都在和Linux打交道，感觉还不错。我觉得Linux相比windows比较麻烦的就是很多东西都要用命令来控制，当然，这也是很多人喜欢linux的原因，比较短小但却功能强大。</p>
+<h3 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">arch 显示机器的处理器架构(1) </span><br><span class="line">uname -m 显示机器的处理器架构(2) </span><br><span class="line">uname -r 显示正在使用的内核版本 </span><br><span class="line">dmidecode -q 显示硬件系统部件 - (SMBIOS &#x2F; DMI) </span><br><span class="line">hdparm -i &#x2F;dev&#x2F;hda 罗列一个磁盘的架构特性 </span><br><span class="line">hdparm -tT &#x2F;dev&#x2F;sda 在磁盘上执行测试性读取操作 </span><br><span class="line">cat &#x2F;proc&#x2F;cpuinfo 显示CPU info的信息 </span><br><span class="line">cat &#x2F;proc&#x2F;interrupts 显示中断 </span><br><span class="line">cat &#x2F;proc&#x2F;meminfo 校验内存使用 </span><br><span class="line">cat &#x2F;proc&#x2F;swaps 显示哪些swap被使用 </span><br><span class="line">cat &#x2F;proc&#x2F;version 显示内核的版本 </span><br><span class="line">cat &#x2F;proc&#x2F;net&#x2F;dev 显示网络适配器及统计 </span><br><span class="line">cat &#x2F;proc&#x2F;mounts 显示已加载的文件系统 </span><br><span class="line">lspci -tv 罗列 PCI 设备 </span><br><span class="line">lsusb -tv 显示 USB 设备 </span><br><span class="line">date 显示系统日期 </span><br><span class="line">cal 2007 显示2007年的日历表 </span><br><span class="line">date 041217002007.00 设置日期和时间 - 月日时分年.秒 </span><br><span class="line">clock -w 将时间修改保存到 BIOS </span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/view/Linux-Common-Command.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-08T18:14:29+08:00"
-              content="2020-03-08">
-          03-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/view/Cross-border-collection-services.html" itemprop="url">
-            <span itemprop="name">【攻略】盘点主流跨境收款服务</span>
-          </a>
-      </div>
-
-    </header>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
   </article>
+  
+  
+  
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wbb.me/view/HTML5-semanticization.html">
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-06T02:38:30+08:00"
-              content="2020-03-06">
-          03-06
-        </time>
-      </div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BOBBIE WANG">
+      <meta itemprop="description" content="Great Code. Great Life.">
+    </span>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/view/Markdown.html" itemprop="url">
-            <span itemprop="name">Markdown 基础语法速查手册</span>
-          </a>
-      </div>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bobbie's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/view/HTML5-semanticization.html" class="post-title-link" itemprop="url">HTML5-语义化</a>
+        </h2>
 
-    </header>
-  </article>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
 
+              <time title="Created: 2017-11-04 12:40:00" itemprop="dateCreated datePublished" datetime="2017-11-04T12:40:00+08:00">2017-11-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-08 18:30:32" itemprop="dateModified" datetime="2020-03-08T18:30:32+08:00">2020-03-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web-design/" itemprop="url" rel="index"><span itemprop="name">Web design</span></a>
+                </span>
+            </span>
 
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <pre><code>   距HTML5标准规范制定完成并公开发布已经有好些年了，面试时也少不了要问对HTML5语义化得理解。但是在实际运用时，真正使用HTML5标签来开发的似乎不是很多（ps：查看了几个巨头公司网站推论），可能一部分原因是仍有部分用户使用在使用低版本浏览器。</code></pre>
+<p>​    但是就我个人而言，因选取一些标签时会比较纠结，所以仍使用了div。（PS：正是因为这样，才有了这篇文章的，没错，以后要注意语义化了）</p>
+<p>​    什么是语义化？就是用合理、正确的标签来展示内容，比如h1~h6定义标题。</p>
+<p>​    语义化优点：</p>
+<ul>
+<li>易于用户阅读，样式丢失的时候能让页面呈现清晰的结构。</li>
+<li>有利于SEO，搜索引擎根据标签来确定上下文和各个关键字的权重。</li>
+<li>方便其他设备解析，如盲人阅读器根据语义渲染网页</li>
+<li>有利于开发和维护，语义化更具可读性，代码更好维护，与CSS3关系更和谐。</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/view/HTML5-semanticization.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
-  </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
   
   
   
 
+
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 

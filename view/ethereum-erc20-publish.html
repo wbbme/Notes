@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wbb.me","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="使用ERC20的开源代码 部署到本地测试链&#x2F;公测链 项目所有代码（在erc20文件夹）   环境部署 安装 geth（以太坊客户端） 安装 truffle（智能合约开发工具包，用于编译与自动部署） 安装 ganache-cli （简易的本地以太坊测试链服务器）  安装命令1234$ brew tap ethereum&#x2F;ethereum$ brew install ethereum$ npm i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="以太坊Solidity开发入门ERC20发币">
+<meta property="og:url" content="https://wbb.me/view/ethereum-erc20-publish.html">
+<meta property="og:site_name" content="Bobbie&#39;s Notes">
+<meta property="og:description" content="使用ERC20的开源代码 部署到本地测试链&#x2F;公测链 项目所有代码（在erc20文件夹）   环境部署 安装 geth（以太坊客户端） 安装 truffle（智能合约开发工具包，用于编译与自动部署） 安装 ganache-cli （简易的本地以太坊测试链服务器）  安装命令1234$ brew tap ethereum&#x2F;ethereum$ brew install ethereum$ npm i">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-11-11T15:46:00.000Z">
+<meta property="article:modified_time" content="2019-10-11T16:56:12.000Z">
+<meta property="article:author" content="BOBBIE WANG">
+<meta property="article:tag" content="ETH">
+<meta property="article:tag" content="ERC20">
+<meta property="article:tag" content="Ethereum">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://wbb.me/view/ethereum-erc20-publish.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>以太坊Solidity开发入门ERC20发币 | Bobbie's Notes</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Bobbie's Notes</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wbb.me/view/ethereum-erc20-publish.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BOBBIE WANG">
+      <meta itemprop="description" content="Great Code. Great Life.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bobbie's Notes">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          以太坊Solidity开发入门ERC20发币
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-11-11 23:46:00" itemprop="dateCreated datePublished" datetime="2018-11-11T23:46:00+08:00">2018-11-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-12 00:56:12" itemprop="dateModified" datetime="2019-10-12T00:56:12+08:00">2019-10-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ethereum/" itemprop="url" rel="index"><span itemprop="name">Ethereum</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<ul>
+<li>使用ERC20的开源代码</li>
+<li>部署到本地测试链/公测链</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/kk412027247/ethereum_node_demo">项目所有代码（在erc20文件夹）</a></li>
+</ul>
+</blockquote>
+<h3 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h3><ul>
+<li>安装 <code>geth</code>（以太坊客户端）</li>
+<li>安装 <code>truffle</code>（智能合约开发工具包，用于编译与自动部署）</li>
+<li>安装 <code>ganache-cli</code> （简易的本地以太坊测试链服务器）</li>
+</ul>
+<h3 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>brew tap ethereum/ethereum</span><br><span class="line"><span class="variable">$ </span>brew install ethereum</span><br><span class="line"><span class="variable">$ </span>npm install -g truffle</span><br><span class="line"><span class="variable">$ </span>npm install -g ganache-cli</span><br></pre></td></tr></table></figure>
+<a id="more"></a> 
+<blockquote>
+<p>这里只写了mac os的geth安装方法，其他平台的geth安装方法请参考<a target="_blank" rel="noopener" href="https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum">https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum</a></p>
+</blockquote>
+<ul>
+<li>检测是否安装成功</li>
+<li>一切就绪后，会显示各个工具的版本数据。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ geth version <span class="comment">//1.8.19-stable</span></span><br><span class="line">$ truffle version <span class="comment">// Truffle v4.1.14 (core: 4.1.14) </span></span><br><span class="line">$ ganache-cli --version <span class="comment">//Ganache CLI v6.2.3 (ganache-core: 2.3.1)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="项目构建"><a href="#项目构建" class="headerlink" title="项目构建"></a>项目构建</h3><ul>
+<li>先新建一个文件夹，用truffle工具初始化，这里会自动下载一些文件，如果网络慢的话，需要等待一下。</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>mkdir erc20</span><br><span class="line"><span class="variable">$ </span>cd erc20</span><br><span class="line"><span class="variable">$ </span>truffle init</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>初始化成功后，安装<code>openzeppelin-solidity</code>模组，这是一套开源的智能合约代码，里面已包括了其他大牛帮我们写好了<code>erc20</code>的智能合约。</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>npm install openzeppelin-solidity</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在contracts目录下新建<code>MyToken.sol</code>文件，并编辑。</li>
+<li>非常简单的，复制粘贴，就把ERC20的智能合约写完了。</li>
+<li>其中<code>TMD_TOKEN</code> 是<code>通证的名字</code>，<code>TMD</code>是简称(<code>symbol</code>)，<code>18</code>是通证的<code>精度</code>，就是有18位小数的意思。</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>cd contracts</span><br><span class="line"><span class="variable">$ </span>touch MyToken.sol</span><br><span class="line">/<span class="regexp">/MyToken.sol</span></span><br><span class="line"><span class="regexp">pragma solidity ^0.4.24;</span></span><br><span class="line"><span class="regexp">import &quot;openzeppelin-solidity/contracts</span><span class="regexp">/token/</span>ERC20/ERC20.sol<span class="string">&quot;;</span></span><br><span class="line"><span class="string">import &quot;</span>openzeppelin-solidity/contracts/token/ERC20/ERC20Detailed.sol<span class="string">&quot;;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">contract MyToken is ERC20, ERC20Detailed &#123;</span></span><br><span class="line"><span class="string">    uint256 public constant INITIAL_SUPPLY = 10000 * (10 ** uint256(decimals()));</span></span><br><span class="line"><span class="string">    constructor () public ERC20Detailed(&quot;</span>TMD_TOKEN<span class="string">&quot;, &quot;</span>TMD<span class="string">&quot;, 18) &#123;</span></span><br><span class="line"><span class="string">        _mint(msg.sender, INITIAL_SUPPLY);</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在migrations目录下新建2_deploy_token.js，并编辑</li>
+<li>这个文件是对应我们合约的文件，数字<code>2</code>代表第二个开始编译部署。</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>cd migrations</span><br><span class="line"><span class="variable">$ </span>touch 2_deploy_token.js</span><br><span class="line">/<span class="regexp">/ 2_deploy_token.js</span></span><br><span class="line"><span class="regexp">var MyToken = artifacts.require(&quot;./</span>MyToken.sol<span class="string">&quot;);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">module.exports = function(deployer) &#123;</span></span><br><span class="line"><span class="string">  deployer.deploy(MyToken);</span></span><br><span class="line"><span class="string">&#125;;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编辑<code>truffle.js</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> = &#123;</span><br><span class="line">  <span class="comment">// See &lt;http://truffleframework.com/docs/advanced/configuration&gt;</span></span><br><span class="line">  <span class="comment">// to customize your Truffle configuration!</span></span><br><span class="line">  networks:&#123;</span><br><span class="line">    <span class="comment">// 第一个是默认的链接节点，</span></span><br><span class="line">    development:&#123;</span><br><span class="line">      host:<span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line">      port:<span class="number">8545</span>,</span><br><span class="line">      network_id:<span class="string">&#x27;*&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//  rinkeby 测试网络的设置，</span></span><br><span class="line">    rinkeby: &#123;</span><br><span class="line">      host: <span class="string">&quot;localhost&quot;</span>,</span><br><span class="line">      port: <span class="number">8545</span>,</span><br><span class="line">      <span class="comment">// 需要设置一个默认的账号，钱包里可能有多个账号。</span></span><br><span class="line">      from: <span class="string">&quot;0xBe255696870b84C69F6e2b902177Cf2a2cB57B58&quot;</span>,</span><br><span class="line">      network_id: <span class="number">4</span>,</span><br><span class="line">      gas: <span class="number">4700000</span>,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 编译配置</span></span><br><span class="line">  solc:&#123;</span><br><span class="line">    optimizer:&#123;</span><br><span class="line">      enabled: <span class="keyword">true</span>,</span><br><span class="line">      runs: <span class="number">200</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动测试节点"><a href="#启动测试节点" class="headerlink" title="启动测试节点"></a>启动测试节点</h3><ul>
+<li><code>ganache-cli</code>会启动一个本地的以太坊网络，里面有10个地址，并且每个地址都是有币的。</li>
+<li><code>geth attach</code>链接区块链会开启一个继承了web3.js的js运行环境。<br>启动一个新的窗口，连接到区块链，查看一下数据，如果默认地址的钱不够，部署会失败。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ ganache-cli</span><br><span class="line">$ geth attach http:<span class="comment">//localhost:8545</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 展示钱包中的地址，在部署的时候，默认会选中第一个。</span></span><br><span class="line">&gt; eth.accounts</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询当前默认账号余额,默认情况下有 100000000000000000000 以太。</span></span><br><span class="line">&gt; eth.getBalance(eth.accounts[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+<h3 id="部署erc20到本地私有链"><a href="#部署erc20到本地私有链" class="headerlink" title="部署erc20到本地私有链"></a>部署erc20到本地私有链</h3><ul>
+<li>切换到项目目录，也就是和<code>truffle.js</code>在同一层的目录，先把智能合约编译一次，<br>编译的时候会读取该配置文件。</li>
+<li>编译成功之后会生成一个<code>build/contracts</code>目录，里面包含了一些编译好的合约</li>
+<li>编译成功后，查一下erc20的账户余额，确认部署成功。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 确认一下项目地址。在 ./erc20 目录下</span></span><br><span class="line">$ pwd</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果编译成功，会显示 Writing artifacts to ./build/contracts</span></span><br><span class="line">$ truffle compile</span><br><span class="line"></span><br><span class="line"><span class="comment">// --reset参数只是确保每次部署都是新的</span></span><br><span class="line"><span class="comment">// 如果部署成功，会显示Saving successful migration to network...</span></span><br><span class="line"><span class="comment">// 并且显示MyToken: 0x984ed7dfbb2926521c8d31de273295c1def894e4 这个合约的所在地址</span></span><br><span class="line">$ truffle migrage --reset</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在刚才打开的 geth attach 的窗口检测一下部署情况。</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构建一个简答的abi，只有查询余额与精度</span></span><br><span class="line">&gt; <span class="keyword">var</span> abi=[&#123;<span class="string">&quot;constant&quot;</span>:<span class="literal">true</span>,<span class="string">&quot;inputs&quot;</span>:[&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;_owner&quot;</span>,<span class="string">&quot;type&quot;</span>:<span class="string">&quot;address&quot;</span>&#125;],<span class="string">&quot;name&quot;</span>:<span class="string">&quot;balanceOf&quot;</span>,<span class="string">&quot;outputs&quot;</span>:[&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;balance&quot;</span>,<span class="string">&quot;type&quot;</span>:<span class="string">&quot;uint256&quot;</span>&#125;],<span class="string">&quot;type&quot;</span>:<span class="string">&quot;function&quot;</span>&#125;,&#123;<span class="string">&quot;constant&quot;</span>:<span class="literal">true</span>,<span class="string">&quot;inputs&quot;</span>:[],<span class="string">&quot;name&quot;</span>:<span class="string">&quot;decimals&quot;</span>,<span class="string">&quot;outputs&quot;</span>:[&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;&quot;</span>,<span class="string">&quot;type&quot;</span>:<span class="string">&quot;uint8&quot;</span>&#125;],<span class="string">&quot;type&quot;</span>:<span class="string">&quot;function&quot;</span>&#125;];</span><br><span class="line">&gt; <span class="keyword">var</span> contract = web3.eth.contract(abi).at(tokenAddress);</span><br><span class="line"><span class="comment">// 现在的balance是带了精度了的，需要除以精度，才是正确的数值。</span></span><br><span class="line">&gt; <span class="keyword">var</span> balance = contract.balanceOf(<span class="string">&#x27;0x09d4a5310d25dec940d736872b01be718db5e724&#x27;</span>);</span><br><span class="line"><span class="comment">// 获取精度</span></span><br><span class="line">&gt; <span class="keyword">var</span> decimals = contract.decimals()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算实际余额， 返回 10000，与我们设置的一样，说明erc20在私有网络已经部署成功</span></span><br><span class="line">&gt; balance.div(<span class="built_in">Math</span>.pow(<span class="number">10</span>, decimals));</span><br></pre></td></tr></table></figure>
+
+<h3 id="部署erc20到公测链（rinkeby）"><a href="#部署erc20到公测链（rinkeby）" class="headerlink" title="部署erc20到公测链（rinkeby）"></a>部署erc20到公测链（rinkeby）</h3><ul>
+<li>导入/生成钱包文件到geth客户端中，需要注意的是，测试网和正式网账号是存储在不同目录的，会根据网络参数写入不同的文件。</li>
+<li>给账号充值（在rinkeby测试网络上）</li>
+<li>我已经有一个含有测试币的地址了，现在只要导入就好。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ vim privatekey.txt</span><br><span class="line"><span class="comment">//贴入 056ef7c6a165f877a5aedb3cfe24b2bbcdd6c680d12df9a82092705fc03ce37f</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  --rinkeby 参数说明是rinkeby测试网的文件。如果不带参数则是正式网络</span></span><br><span class="line">$ geth --rinkeby  account <span class="keyword">import</span> ./privatekey.txt</span><br><span class="line"><span class="comment">// 输入密码 12345678</span></span><br><span class="line"><span class="comment">// 重复密码 12345678</span></span><br><span class="line"><span class="comment">// 展示 Address: &#123;be255696870b84c69f6e2b902177cf2a2cb57b58&#125;，表示导入成功</span></span><br><span class="line">$ rm privatekey.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查看一下当前客户端有那些地址，be255696870b84c69f6e2b902177cf2a2cb57b58也在其中。</span></span><br><span class="line">$ geth --rinkeby account <span class="built_in">list</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动客户端，等待区块信息同步完成，这一步可能会耗费很长时间。</li>
+<li>解锁部署账户</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ geth  --rinkeby --rpc --rpcapi db,eth,net,web3,personal  </span><br><span class="line">$ geth attach /Users/tmd/Library/Ethereum/rinkeby/geth.ipc</span><br><span class="line"></span><br><span class="line">&gt; personal.unlockAccount(<span class="string">&#x27;0xbe255696870b84c69f6e2b902177cf2a2cb57b58&#x27;</span>)</span><br><span class="line"><span class="comment">// 输入刚才设置但钱包密码12345678</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 切换窗口</span></span><br><span class="line"><span class="comment">// 部署合约到公测网，该配置在 truffle.js 文件中的rinkeby设置里。</span></span><br><span class="line">$ truffle migrate --network rinkeby --reset</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果部署成功，会显示与本地私有网显示的类似。</span></span><br><span class="line"><span class="comment">// 如果部署不成功，很有可能是客户端还没同步完成，影响部署。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 切换到 geth attach 窗口</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在客客户端查询一下自己钱包的余额</span></span><br><span class="line">&gt; eth.getBalance(<span class="string">&#x27;0xbe255696870b84c69f6e2b902177cf2a2cb57b58&#x27;</span>)</span><br><span class="line"><span class="comment">// 余额显示为0，但是这个地址在测试网是有钱的，说明我目前的节点同步未完成，无法进行部署，需要等待区块同步结束</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="通过ether-js部署ERC20"><a href="#通过ether-js部署ERC20" class="headerlink" title="通过ether.js部署ERC20"></a>通过ether.js部署ERC20</h3><ul>
+<li><code>ether.js</code>是一个nodejs与以太坊交互的工具，如果不熟悉可以看看我<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7f3de8cf2d09">上一篇文章</a></li>
+<li>由于已经通过<code>truffle compile</code>命令编译了合约文件，现在只要读取合约文件中的<code>bytecode</code>与<code>abi</code>部署到区块网络即可，不需要经过等待漫长的客户端区块同步了</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>npm install ether</span><br><span class="line">/<span class="regexp">/ERC20.js</span></span><br><span class="line"><span class="regexp">const ethers = require(&#x27;ethers&#x27;);</span></span><br><span class="line"><span class="regexp">const fs = require(&#x27;fs&#x27;);</span></span><br><span class="line"><span class="regexp">const util = require(&#x27;util&#x27;);</span></span><br><span class="line"><span class="regexp">const readFile =util.promisify(fs.readFile);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const provider = ethers.getDefaultProvider(&#x27;rinkeby&#x27;);</span></span><br><span class="line"><span class="regexp">const mnemonic1 = &#x27;utility opinion husband upset finger side round exhaust arm allow pilot hospital&#x27;;</span></span><br><span class="line"><span class="regexp">const _wallet = ethers.Wallet.fromMnemonic(mnemonic1);</span></span><br><span class="line"><span class="regexp">const wallet = _wallet.connect(provider);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const createERC20 = async () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/ 读取编译完成的文件。</span></span><br><span class="line"><span class="regexp">  const file = await readFile(&#x27;./erc</span>20/build/contracts/MyToken.json<span class="string">&#x27;,&#123;encoding: &#x27;</span>utf8<span class="string">&#x27;&#125;)  ;</span></span><br><span class="line"><span class="string">  const obj = JSON.parse(file);</span></span><br><span class="line"><span class="string">  const abi = obj.abi;</span></span><br><span class="line"><span class="string">  const bytecode= obj.bytecode;</span></span><br><span class="line"><span class="string">  // console.log(abi);</span></span><br><span class="line"><span class="string">  // console.log(bytecode);</span></span><br><span class="line"><span class="string">  let factory = new ethers.ContractFactory(abi, bytecode, wallet);</span></span><br><span class="line"><span class="string">  let contract = await factory.deploy();</span></span><br><span class="line"><span class="string">  return contract.deployed()</span></span><br><span class="line"><span class="string">&#125;;</span></span><br><span class="line"><span class="string">createcreateToken().then(result=&gt;console.log(&#x27;</span><span class="symbol">result:</span> <span class="string">&#x27;,result)).catch(err=&gt;console.log(&#x27;</span><span class="symbol">err:</span> <span class="string">&#x27;,err));</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行后如果显示一大串信息，并且有交易哈希，则表示运行成功</li>
+<li>运行结果中，找到合约地址为<code>0x13f60906DE3758F025cdA95899d3742DC60C24A4</code></li>
+</ul>
+<h3 id="ERC20-转账"><a href="#ERC20-转账" class="headerlink" title="ERC20 转账"></a>ERC20 转账</h3><ul>
+<li>转账的时候一定要先读取精度，虽然这个函数不是一定有的，但是大多数erc20都提供了该接口。</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> transferERC20 = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> file = <span class="keyword">await</span> readFile(<span class="string">&#x27;./erc20/build/contracts/MyToken.json&#x27;</span>,&#123;<span class="attr">encoding</span>: <span class="string">&#x27;utf8&#x27;</span>&#125;)  ;</span><br><span class="line">  <span class="keyword">const</span> obj = <span class="built_in">JSON</span>.parse(file);</span><br><span class="line">  <span class="keyword">const</span> abi = obj.abi;</span><br><span class="line">  <span class="keyword">const</span> contractAddress = <span class="string">&#x27;0x13f60906DE3758F025cdA95899d3742DC60C24A4&#x27;</span>;</span><br><span class="line">  <span class="keyword">const</span> contract = <span class="keyword">new</span> ethers.Contract(contractAddress, abi, provider);</span><br><span class="line">  <span class="keyword">const</span> decimals = <span class="keyword">await</span> contract.decimals();</span><br><span class="line">  <span class="keyword">const</span> name = <span class="keyword">await</span> contract.name();</span><br><span class="line">  <span class="keyword">const</span> totalSupply =  <span class="keyword">await</span> contract.totalSupply();</span><br><span class="line">  <span class="keyword">const</span> symbol = <span class="keyword">await</span> contract.symbol();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;name: &#x27;</span>,name);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;symbol: &#x27;</span>,symbol) ;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;decimals: &#x27;</span>,decimals) ;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;totalSupply: &#x27;</span>,ethers.utils.formatUnits(totalSupply, decimals)) ;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 合约签名</span></span><br><span class="line">  <span class="keyword">const</span> contractWithSigner = contract.connect(wallet);</span><br><span class="line">  <span class="keyword">const</span> amount = <span class="string">&#x27;10&#x27;</span>;</span><br><span class="line">  <span class="comment">// 数字序列化</span></span><br><span class="line">  <span class="keyword">const</span> numberOfTokens = ethers.utils.parseUnits(amount, decimals);</span><br><span class="line">  <span class="comment">// 发起转账</span></span><br><span class="line">  <span class="keyword">const</span> tx = <span class="keyword">await</span> contractWithSigner.transfer(<span class="string">&#x27;0xbe79D5B66A5D44607F91E312ec5E35b8c92db5bf&#x27;</span>, numberOfTokens);</span><br><span class="line">  <span class="keyword">await</span> tx.wait();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;hash&#x27;</span>,tx.hash);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 查询余额</span></span><br><span class="line">  <span class="keyword">const</span> _balance = <span class="keyword">await</span> contract.balanceOf(<span class="string">&#x27;0xbe79D5B66A5D44607F91E312ec5E35b8c92db5bf&#x27;</span>);</span><br><span class="line">  <span class="comment">// 数字反序列化</span></span><br><span class="line">  <span class="keyword">const</span> balance = ethers.utils.formatUnits(_balance, decimals);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;balance: &#x27;</span>,balance, symbol)</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">transferERC20().catch(<span class="built_in">console</span>.log);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>结果显示余额与symbol，说明转账成功。</li>
+<li>因为该合约是部署在公测网上的，可以通过<a target="_blank" rel="noopener" href="https://rinkeby.etherscan.io/address/0x13f60906DE3758F025cdA95899d3742DC60C24A4">区块浏览器</a>查询到该合约交易历史</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ETH/" rel="tag"># ETH</a>
+              <a href="/tags/ERC20/" rel="tag"># ERC20</a>
+              <a href="/tags/Ethereum/" rel="tag"># Ethereum</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/view/Linux-Common-Command.html" rel="prev" title="Linux常用命令-完整手册">
+      <i class="fa fa-chevron-left"></i> Linux常用命令-完整手册
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/view/ethereum-developer-tools-list.html" rel="next" title="Ethereum Developer Tools List">
+      Ethereum Developer Tools List <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2"><span class="nav-number">1.</span> <span class="nav-text">环境部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">安装命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA"><span class="nav-number">3.</span> <span class="nav-text">项目构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95%E8%8A%82%E7%82%B9"><span class="nav-number">4.</span> <span class="nav-text">启动测试节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2erc20%E5%88%B0%E6%9C%AC%E5%9C%B0%E7%A7%81%E6%9C%89%E9%93%BE"><span class="nav-number">5.</span> <span class="nav-text">部署erc20到本地私有链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2erc20%E5%88%B0%E5%85%AC%E6%B5%8B%E9%93%BE%EF%BC%88rinkeby%EF%BC%89"><span class="nav-number">6.</span> <span class="nav-text">部署erc20到公测链（rinkeby）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87ether-js%E9%83%A8%E7%BD%B2ERC20"><span class="nav-number">7.</span> <span class="nav-text">通过ether.js部署ERC20</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ERC20-%E8%BD%AC%E8%B4%A6"><span class="nav-number">8.</span> <span class="nav-text">ERC20 转账</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="BOBBIE WANG"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">BOBBIE WANG</p>
+  <div class="site-description" itemprop="description">Great Code. Great Life.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wbbme" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wbbme" rel="noopener" target="_blank"><i class="fab fa-github-alt fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://dribbble.com/wbbme" title="Dribbble → https:&#x2F;&#x2F;dribbble.com&#x2F;wbbme" rel="noopener" target="_blank"><i class="fab fa-dribbble fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://behance.net/wbbme" title="Behance → https:&#x2F;&#x2F;behance.net&#x2F;wbbme" rel="noopener" target="_blank"><i class="fab fa-behance fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.paypal.me/wbbme/5" title="Paypal → https:&#x2F;&#x2F;www.paypal.me&#x2F;wbbme&#x2F;5" rel="noopener" target="_blank"><i class="fab fa-paypal fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/wbbme" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wbbme" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Me@wbb.me" title="E-Mail → mailto:Me@wbb.me"><i class="fab fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.behance.net/" title="https:&#x2F;&#x2F;www.behance.net&#x2F;" rel="noopener" target="_blank">Behance</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://dribbble.com/" title="https:&#x2F;&#x2F;dribbble.com&#x2F;" rel="noopener" target="_blank">Dribbble</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ant.design/" title="https:&#x2F;&#x2F;ant.design&#x2F;" rel="noopener" target="_blank">Ant.design</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://element.eleme.io/" title="https:&#x2F;&#x2F;element.eleme.io&#x2F;" rel="noopener" target="_blank">Element.io</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://color.adobe.com/" title="https:&#x2F;&#x2F;color.adobe.com&#x2F;" rel="noopener" target="_blank">Adobe Color</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://fonts.google.com/" title="https:&#x2F;&#x2F;fonts.google.com&#x2F;" rel="noopener" target="_blank">Google Fonts</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://fontawesome.com/" title="https:&#x2F;&#x2F;fontawesome.com&#x2F;" rel="noopener" target="_blank">Font awesome</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://tutulifestyle.com/" title="https:&#x2F;&#x2F;tutulifestyle.com&#x2F;" rel="noopener" target="_blank">TuTu生活志</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bobbie's Notes</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

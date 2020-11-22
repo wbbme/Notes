@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wbb.me","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="A guide to available tools, components, patterns, and platforms for developing applications on Ethereum.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ethereum Developer Tools List">
+<meta property="og:url" content="https://wbb.me/view/ethereum-developer-tools-list.html">
+<meta property="og:site_name" content="Bobbie&#39;s Notes">
+<meta property="og:description" content="A guide to available tools, components, patterns, and platforms for developing applications on Ethereum.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-10-11T16:35:00.000Z">
+<meta property="article:modified_time" content="2020-03-25T11:02:38.000Z">
+<meta property="article:author" content="BOBBIE WANG">
+<meta property="article:tag" content="ETH">
+<meta property="article:tag" content="Ethereum">
+<meta property="article:tag" content="Tools">
+<meta property="article:tag" content="Developer">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://wbb.me/view/ethereum-developer-tools-list.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Ethereum Developer Tools List | Bobbie's Notes</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Bobbie's Notes</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wbb.me/view/ethereum-developer-tools-list.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BOBBIE WANG">
+      <meta itemprop="description" content="Great Code. Great Life.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bobbie's Notes">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ethereum Developer Tools List
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-12 00:35:00" itemprop="dateCreated datePublished" datetime="2019-10-12T00:35:00+08:00">2019-10-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-25 19:02:38" itemprop="dateModified" datetime="2020-03-25T19:02:38+08:00">2020-03-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ethereum/" itemprop="url" rel="index"><span itemprop="name">Ethereum</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">A guide to available tools, components, patterns, and platforms for developing applications on Ethereum.</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Ethereum-Developer-Tools-List"><a href="#Ethereum-Developer-Tools-List" class="headerlink" title="Ethereum Developer Tools List"></a>Ethereum Developer Tools List</h1><p>A guide to available tools, components, patterns, and platforms for developing applications on Ethereum.</p>
+<p>Creation of this list was spurred by product managers at ConsenSys who saw a need for better sharing of tools, development patterns, and components amongst both new and experienced blockchain developers.</p>
+<p>This resource is meant to be focused on developer tools, but the repo also includes:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list/blob/master/EcosystemResources.md">Ethereum Ecosystem Resources</a> for useful DApps, educational resources, wallets, and services.</li>
+</ul>
+<a id="more"></a> 
+
+<h1 id="Contributions-are-welcome"><a href="#Contributions-are-welcome" class="headerlink" title="Contributions are welcome!"></a>Contributions are welcome!</h1><p>Feel free to submit a pull request, with anything from small fixes to tools you’d like to add (or remove!). If adding a new tool, <strong>please add a brief description</strong> that you think new developers would understand.</p>
+<p>Many thanks to the ~100 contributors including <a target="_blank" rel="noopener" href="https://twitter.com/corbpage">@corbpage</a> and <a target="_blank" rel="noopener" href="https://twitter.com/Parker_Place">@pakaplace</a> of <a target="_blank" rel="noopener" href="https://meridio.co/">Meridio</a> for curating, and @jpantunes for restructuring the list in a more logical way.</p>
+<ul>
+<li>Projects that do not have a working product will not be added.</li>
+<li>Projects that are deprecated or no longer maintained will be removed.</li>
+<li>Projects that are paid/restricted services without open source code or developer reviews will be further vetted.</li>
+</ul>
+<p>^Is the above fair? Share your input here - <a target="_blank" rel="noopener" href="https://github.com/ConsenSysLabs/ethereum-developer-tools-list/pull/70">https://github.com/ConsenSysLabs/ethereum-developer-tools-list/pull/70</a></p>
+<h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#new-developers-start-here">New developers start here</a></li>
+<li>Developer Tools<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#smart-contract-languages">Smart Contract Languages</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#frameworks">Frameworks</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#ides">IDEs</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#test-blockchain-networks">Test blockchain networks</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#test-ether-faucets">Test Ether faucets</a></li>
+</ul>
+</li>
+<li>Communicating with Ethereum<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#frontend-ethereum-apis">Frontend Ethereum APIs</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#backend-ethereum-apis">Backend Ethereum APIs</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#bootstrapout-of-box-tools">Bootstrap/out of box tools</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#ethereum-abi-application-binary-interface-tools">Ethereum ABI (Application Binary Interface) tools</a></li>
+</ul>
+</li>
+<li>Patterns &amp; Best Practices<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#patterns-for-smart-contract-development">Patterns for Smart Contract Development</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#upgradeability">Upgradeability</a></li>
+</ul>
+</li>
+<li>Infrastructure<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#ethereum-clients">Ethereum Clients</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#storage">Storage</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#messaging">Messaging</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#testing-tools">Testing Tools</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#security-tools">Security Tools</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#monitoring">Monitoring</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#other-miscellaneous-tools">Other Miscellaneous Tools</a></li>
+<li>Smart Contract Standards &amp; Libraries<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#ercs---the-ethereum-request-for-comment-repository">ERCs - The Ethereum Request for Comment repository</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#popular-smart-contract-libraries">Popular Smart Contract Libraries</a></li>
+</ul>
+</li>
+<li>Developer Guides for 2nd Layer Infrastructure<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#scalability">Scalability</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#paymentstate-channels">Payment/State Channels</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#plasma">Plasma</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#side-chains">Side-Chains</a></li>
+</ul>
+</li>
+<li>Privacy / Confidentiality<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#zksnarks">zkSNARKs</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/ethereum-developer-tools-list#prebuilt-ui-components">Prebuilt UI Components</a></li>
+</ul>
+<h1 id="New-developers-start-here"><a href="#New-developers-start-here" class="headerlink" title="New developers start here"></a>New developers start here</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://solidity.readthedocs.io/en/latest/">Solidity</a> - The most popular smart contract language.</li>
+<li><a target="_blank" rel="noopener" href="https://truffleframework.com/">Truffle</a> - Most popular smart contract development, testing, and deployment framework. Install the cli via npm and start here to write your first smart contracts.</li>
+<li><a target="_blank" rel="noopener" href="https://metamask.io/">Metamask</a> - Chrome extension wallet to interact with Dapps.</li>
+<li><a target="_blank" rel="noopener" href="https://truffleframework.com/boxes/">Truffle boxes</a> - Packaged components for the Ethereum ecosystem</li>
+<li><a target="_blank" rel="noopener" href="https://openzeppelin.com/starter-kits/">OpenZeppelin Starter Kits</a> - An all-in-one starter box for developers to jumpstart their smart contract backed applications. Includes Truffle, OpenZeppelin SDK, the OpenZeppelin/contracts-ethereum-package EVM package of audited smart contract, a react-app and rimble for easy styling.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.ethhub.io/">EthHub.io</a> - Comprehensive crowdsourced overview of Ethereum- its history, governance, future plans and development resources.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/cobraframework/cobra">Cobra</a> - A fast, flexible and simple development environment framework for Ethereum smart contract, testing and deployment on Ethereum virtual machine(EVM).</li>
+<li><a target="_blank" rel="noopener" href="https://fortmatic.com/">Fortmatic</a> - A simple to use SDK to build web3 dApps without extensions or downloads.</li>
+<li><a target="_blank" rel="noopener" href="https://portis.io/">Portis</a> - A non-custodial wallet with an SDK that enables easy interaction with DApps without installing anything.</li>
+</ul>
+<h1 id="Developer-Tools"><a href="#Developer-Tools" class="headerlink" title="Developer Tools"></a>Developer Tools</h1><h2 id="Developing-Smart-Contracts"><a href="#Developing-Smart-Contracts" class="headerlink" title="Developing Smart Contracts"></a>Developing Smart Contracts</h2><h2 id="Smart-Contract-Languages"><a href="#Smart-Contract-Languages" class="headerlink" title="Smart Contract Languages"></a>Smart Contract Languages</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://solidity.readthedocs.io/en/latest/">Solidity</a> - Ethereum smart contracting language</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pirapira/bamboo">Bamboo</a> - A morphing smart contract language</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethereum/vyper">Vyper</a> - New experimental pythonic programming language</li>
+<li><a target="_blank" rel="noopener" href="https://docs.flintlang.org/">Flint</a> - New language under development with security features including asset types, state transition, and safe integers</li>
+</ul>
+<h2 id="Frameworks"><a href="#Frameworks" class="headerlink" title="Frameworks"></a>Frameworks</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://truffleframework.com/">Truffle</a> - Most popular smart contract development, testing, and deployment framework. The Truffle suite includes Truffle, <a target="_blank" rel="noopener" href="https://github.com/trufflesuite/ganache">Ganache</a>, and <a target="_blank" rel="noopener" href="https://github.com/truffle-box/drizzle-box">Drizzle</a>. <a target="_blank" rel="noopener" href="https://media.consensys.net/truffle-deep-dive-what-you-need-to-know-when-developing-on-ethereum-e548d4df6e9">Deep dive on Truffle here</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/embark-framework/embark">Embark</a> - Framework for DApp development</li>
+<li><a target="_blank" rel="noopener" href="https://getwaffle.io/">Waffle</a> - Framework for advanced smart contract development and testing, small, flexible, fast (based on ethers.js)</li>
+<li><a target="_blank" rel="noopener" href="https://dapp.tools/dapp/">Dapp</a> - Framework for DApp development, successor to DApple</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/LimeChain/etherlime">Etherlime</a> - ethers.js based framework for Dapp deployment</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Lamarkaz/parasol">Parasol</a> - Agile smart contract development environment with testing, INFURA deployment, automatic contract documentation and more. It features a flexible and unopinionated design with unlimited customizability</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/0xcert/framework/">0xcert</a> - JavaScript framework for building decentralized applications</li>
+<li><a target="_blank" rel="noopener" href="https://openzeppelin.com/sdk/">OpenZeppelin SDK</a> - OpenZeppelin SDK: A suite of tools to help you develop, compile, upgrade, deploy and interact with smart contracts.</li>
+<li><a target="_blank" rel="noopener" href="https://www.sbt-ethereum.io/">sbt-ethereum</a> - A tab-completey, text-based console for smart-contract interaction and development, including wallet and ABI management, ENS support, and advanced Scala integration.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/iamdefinitelyahuman/brownie">Brownie</a> - Brownie is a Python framework for deploying, testing and interacting with Ethereum smart contracts.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/cobraframework/cobra">Cobra</a> - A fast, flexible and simple development environment framework for Ethereum smart contract, testing and deployment on Ethereum virtual machine(EVM).</li>
+</ul>
+<h2 id="IDEs"><a href="#IDEs" class="headerlink" title="IDEs"></a>IDEs</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://remix.ethereum.org/">Remix</a> - Web IDE with built in static analysis, test blockchain VM.</li>
+<li><a target="_blank" rel="noopener" href="https://superblocks.com/lab/">Superblocks Lab</a> - Web IDE. Built in browser blockchain VM, Metamask integration (one click deployments to Testnet/Mainnet), transaction logger and live code your WebApp among many other features.</li>
+<li><a target="_blank" rel="noopener" href="https://atom.io/">Atom</a> - Atom editor with <a target="_blank" rel="noopener" href="https://atom.io/packages/atom-solidity-linter">Atom Solidity Linter</a>, <a target="_blank" rel="noopener" href="https://atom.io/packages/etheratom">Etheratom</a>, <a target="_blank" rel="noopener" href="https://atom.io/packages/autocomplete-solidity">autocomplete-solidity</a>, and <a target="_blank" rel="noopener" href="https://atom.io/packages/language-solidity">language-solidity</a> packages</li>
+<li><a target="_blank" rel="noopener" href="https://www.withpragma.com/">Pragma</a> - Very simple web IDE for solidity, and auto-generated interfaces for smart contracts.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tomlion/vim-solidity">Vim solidity</a> - Vim syntax file for solidity</li>
+<li><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity">Visual Studio Code</a> - Visual Studio Code extension that adds support for Solidity</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/intellij-solidity/intellij-solidity/wiki">Intellij Solidity Plugin</a> - Open-source plug-in for <a target="_blank" rel="noopener" href="https://www.jetbrains.com/idea/">JetBrains IntelliJ Idea IDE</a> (free/commercial) with syntax highlighting, formatting, code completion etc.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Yakindu/solidity-ide">YAKINDU Solidity Tools</a> - Eclipse based IDE. Features context sensitive code completion and help, code navigation, syntax coloring, build in compiler, quick fixes and templates.</li>
+<li><a target="_blank" rel="noopener" href="https://ethfiddle.com/">Eth Fiddle</a> - IDE developed by <a target="_blank" rel="noopener" href="https://loomx.io/">The Loom Network</a> that allows you to write, compile and debug your smart contract. Easy to share and find code snippets.</li>
+</ul>
+<h2 id="Other-tools"><a href="#Other-tools" class="headerlink" title="Other tools"></a>Other tools</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://console.atra.io/">Atra Blockchain Services</a> - Atra provides web services to help you build, deploy, and maintain decentralized applications on the Ethereum blockchain.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/nomiclabs/buidler">Buidler</a> - Extensible developer tool that helps smart contract developers increase productivity by reliably bringing together the tools they want.</li>
+</ul>
+<h1 id="Test-blockchain-networks"><a href="#Test-blockchain-networks" class="headerlink" title="Test blockchain networks"></a>Test blockchain networks</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/vrde/ethnode">ethnode</a> - Run an Ethereum node (Geth or Parity) for development, as easy as <code>npm i -g ethnode &amp;&amp; ethnode</code>.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/trufflesuite/ganache">Ganache</a> - App for test Ethereum blockchain with visual UI and logs</li>
+<li><a target="_blank" rel="noopener" href="https://kaleido.io/">Kaleido</a> - Use Kaleido for spinning up a consortium blockchain network. Great for PoCs and testing</li>
+<li><a target="_blank" rel="noopener" href="https://docs.pantheon.pegasys.tech/en/latest/Getting-Started/Private-Network-Quickstart/">Pantheon Private Network</a> - Run a private network of Pantheon nodes in a Docker container ** <a target="_blank" rel="noopener" href="https://github.com/PegaSysEng/orion">Orion</a> - Component for performing private transactions by PegaSys ** <a target="_blank" rel="noopener" href="https://github.com/PegaSysEng/artemis">Artemis</a> - Java implementation of the Ethereum 2.0 Beacon Chain by PegaSys</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/f-o-a-m/cliquebait">Cliquebait</a> - Simplifies integration and accepting testing of smart contract applications with docker instances that closely resembles a real blockchain network</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/Local-Raiden">Local Raiden</a> - Run a local Raiden network in docker containers for demo and testing purposes</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/private-networks-deployment-scripts">Private networks deployment scripts</a> - Out-of-the-box deployment scripts for private PoA networks</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/local_ethereum_network">Local Ethereum Network</a> - Out-of-the-box deployment scripts for private PoW networks</li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/azure/blockchain-workbench/ethereum-poa-deployment">Ethereum on Azure</a> - Deployment and governance of consortium Ethereum PoA networks</li>
+<li><a target="_blank" rel="noopener" href="https://getho.io/">getho</a> - DApp development platform including PoA private blockchain and Smart Contract testing tool.</li>
+<li><a target="_blank" rel="noopener" href="https://console.cloud.google.com/marketplace/details/click-to-deploy-images/ethereum?filter=category:developer-tools">Ethereum on Google Cloud</a> - Build Ethereum network based on Proof of Work</li>
+<li><a target="_blank" rel="noopener" href="https://infura.io/">Infura</a> - Ethereum API access to Ethereum networks (Mainnet, Ropsten, Rinkeby, Goerli, Kovan)</li>
+</ul>
+<h2 id="Test-Ether-faucets"><a href="#Test-Ether-faucets" class="headerlink" title="Test Ether faucets"></a>Test Ether faucets</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://faucet.rinkeby.io/">Rinkeby faucet</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/kovan-testnet/faucet">Kovan faucet</a></li>
+<li><a target="_blank" rel="noopener" href="http://faucet.ropsten.be:3001/">Ropsten faucet</a></li>
+<li><a target="_blank" rel="noopener" href="https://goerli-faucet.slock.it/">Goerli faucet</a></li>
+<li><a target="_blank" rel="noopener" href="https://faucets.blockxlabs.com/">Universal faucet</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Nethereum/Nethereum.Faucet">Nethereum.Faucet</a> - A C#/.NET faucet</li>
+</ul>
+<h2 id="Communicating-with-Ethereum"><a href="#Communicating-with-Ethereum" class="headerlink" title="Communicating with Ethereum"></a>Communicating with Ethereum</h2><h2 id="Frontend-Ethereum-APIs"><a href="#Frontend-Ethereum-APIs" class="headerlink" title="Frontend Ethereum APIs"></a>Frontend Ethereum APIs</h2><ul>
+<li>Web3.js</li>
+</ul>
+<p>  - Javascript Web3</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ethjs">Eth.js</a> - Javascript Web3 alternative</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ethers-io/ethers.js/">Ethers.js</a> - Javascript Web3 alternative, useful utilities and wallet features</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/paritytech/js-libs/tree/master/packages/light.js">light.js</a> A high-level reactive JS library optimized for light clients.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/0xProject/0x-monorepo/tree/v2-prototype/packages/web3-wrapper">Web3Wrapper</a> - Typescript Web3 alternative</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ethereumjs/">Ethereumjs</a> - A collection of utility functions for Ethereum like <a target="_blank" rel="noopener" href="https://github.com/ethereumjs/ethereumjs-util">ethereumjs-util</a> and <a target="_blank" rel="noopener" href="https://github.com/ethereumjs/ethereumjs-tx">ethereumjs-tx</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/merklejerk/flex-contract">flex-contract</a> and <a target="_blank" rel="noopener" href="https://github.com/merklejerk/flex-ether">flex-ether</a> Modern, zero-configuration, high-level libraries for interacting with smart contracts and making transactions.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/merklejerk/ez-ens">ez-ens</a> Simple, zero-configuration Ethereum Name Service address resolver.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/xf00f/web3x">web3x</a> - A TypeScript port of web3.js. Benefits includes tiny builds and full type safety, including when interacting with contracts.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Nethereum/">Nethereum</a> - Cross-platform Ethereum development framework</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/truffle-box/drizzle-box">Drizzle</a> - Redux library to connect a frontend to a blockchain</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/tasitlabs/tasitsdk">Tasit SDK</a> - A JavaScript SDK for making native mobile Ethereum dapps using React Native</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/0xProject/0x-monorepo/tree/v2-prototype/packages/subproviders">Subproviders</a> - Several useful subproviders to use in conjunction with <a target="_blank" rel="noopener" href="https://github.com/MetaMask/provider-engine/">Web3-provider-engine</a> (including a LedgerSubprovider for adding Ledger hardware wallet support to your dApp)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/NoahZinsmeister/web3-react">web3-react</a> - React framework for building single-page Ethereum dApps</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Horyus/vortex">Vortex</a> - A Dapp-ready Redux Store. Smart and Dynamic background data refresh thanks to WebSockets. Works with <a target="_blank" rel="noopener" href="https://github.com/Horyus/vortex-demo">Truffle</a> and <a target="_blank" rel="noopener" href="https://github.com/Horyus/vortex-demo-embark">Embark</a>.</p>
+</li>
+<li><p>Strictly Typed - Javascript alternatives</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/cmditch/elm-ethereum">elm-ethereum</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/f-o-a-m/purescript-web3">purescript-web3</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/liquality/chainabstractionlayer">ChainAbstractionLayer</a> - Communicate with different blockchains (including Ethereum) using a single interface.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/svanas/delphereum">Delphereum</a> - a Delphi interface to the Ethereum blockchain that allows for development of native dApps for Windows, macOS, iOS, and Android.</p>
+</li>
+</ul>
+<h1 id="Backend-Ethereum-APIs"><a href="#Backend-Ethereum-APIs" class="headerlink" title="Backend Ethereum APIs"></a>Backend Ethereum APIs</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethereum/web3.py">Web3.py</a> - Python Web3</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sc0Vu/web3.php">Web3.php</a> - PHP Web3</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/digitaldonkey/ethereum-php">Ethereum-php</a> - PHP Web3</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/web3j/web3j">Web3j</a> - Java Web3</li>
+<li><a target="_blank" rel="noopener" href="https://nethereum.com/">Nethereum</a> - .Net Web3</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/EthWorks/ethereum.rb">Ethereum.rb</a> - Ruby Web3</li>
+<li><a target="_blank" rel="noopener" href="https://hackage.haskell.org/package/web3">Web3.hs</a> - Haskell Web3</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/walleth/kethereum">KEthereum</a> - Kotlin Web3</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethereum/pyethereum">Pyethereum</a> - The Python core library of the Ethereum project</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/eventeum">Eventeum</a> - A bridge between Ethereum smart contract events and backend microservices, written in Java by Kauri</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mana-ethereum/ethereumex">Ethereumex</a> - Elixir JSON-RPC client for the Ethereum blockchain</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/AgileAlpha/eth_contract">EthContract</a> - A set of helper methods to help query ETH smart contracts in Elixir</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mesg-foundation/service-ethereum-contract">Ethereum Contract Service</a> - A MESG Service to interact with any Ethereum contract based on its address and ABI.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mesg-foundation/service-ethereum">Ethereum Service</a> - A MESG Service to interact with events from Ethereum and interact with it.</li>
+</ul>
+<h1 id="Bootstrap-out-of-box-tools"><a href="#Bootstrap-out-of-box-tools" class="headerlink" title="Bootstrap/out of box tools"></a>Bootstrap/out of box tools</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://truffleframework.com/boxes/">Truffle boxes</a> - Packaged components for the Ethereum ecosystem</li>
+<li><a target="_blank" rel="noopener" href="https://docs.pantheon.pegasys.tech/en/latest/Getting-Started/Private-Network-Quickstart/">Pantheon Private Network</a> - Run a private network of Pantheon nodes in a Docker container</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Nethereum/TestChains">Testchains</a> - Pre-configured .NET devchains for fast response (PoA) ** <a target="_blank" rel="noopener" href="https://github.com/Nethereum/NethereumBlazor">Blazor/Blockchain Explorer</a> - Wasm blockchain explorer (functional sample)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/Local-Raiden">Local Raiden</a> - Run a local Raiden network in docker containers for demo and testing purposes</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/private-networks-deployment-scripts">Private networks deployment scripts</a> - Out-of-the-box deployment scripts for private PoA networks</li>
+<li><a target="_blank" rel="noopener" href="https://wiki.parity.io/Demo-PoA-tutorial.html">Parity Demo-PoA Tutorial</a> - Step-by-Step tutorial for building a PoA test chain with 2 nodes with Parity authority round consensus</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/local_ethereum_network">Local Ethereum Network</a> - Out-of-the-box deployment scripts for private PoW networks</li>
+<li><a target="_blank" rel="noopener" href="https://kaleido.io/">Kaleido</a> - Use Kaleido for spinning up a consortium blockchain network. Great for PoCs and testing</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/endless-nameless-inc/cheshire">Cheshire</a> - A local sandbox implementation of the CryptoKitties API and smart contracts, available as a Truffle Box</li>
+<li><a target="_blank" rel="noopener" href="https://hack.aragon.org/docs/cli-usage.html">aragonCLI</a> - aragonCLI is used to create and develop Aragon apps and organizations.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/JoinColony/colonyJS">ColonyJS</a> - JavaScript client that provides an API for interacting with the Colony Network smart contracts.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/daostack/arc.js">ArcJS</a> - Library that facilitates javascript application access to the DAOstack Arc ethereum smart contracts.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.arkane.network/pages/connect-js.html">Arkane Connect</a> - JavaScript client that provides an API for interacting with Arkane Network, a wallet provider for building user-friendly dapps.</li>
+<li><a target="_blank" rel="noopener" href="https://blocknative.com/">Blocknative</a> - Assist.js is an embeddable widget that improves Dapp usability. The tool programmatically identifies and outlines clear actions for end-users to follow when interacting with MetaMask to overcome — and even prevent — common pitfalls and obstacles.</li>
+</ul>
+<h2 id="Ethereum-ABI-Application-Binary-Interface-tools"><a href="#Ethereum-ABI-Application-Binary-Interface-tools" class="headerlink" title="Ethereum ABI (Application Binary Interface) tools"></a>Ethereum ABI (Application Binary Interface) tools</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/abi-decoder">ABI decoder</a> - library for decoding data params and events from Ethereum transactions</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/0xProject/0x-monorepo/tree/v2-prototype/packages/abi-gen">ABI-gen</a> - Generate Typescript contract wrappers from contract ABI’s.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hiddentao/ethereum-abi-ui">Ethereum ABI UI</a> - Auto-generate UI form field definitions and associated validators from an Ethereum contract ABI</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/esaulpaugh/headlong/">headlong</a> - type-safe Contract ABI and Recursive Length Prefix library in Java</li>
+<li><a target="_blank" rel="noopener" href="https://oneclickdapp.com/">One Click dApp</a> - Instantly create a dApp at a unique URL using the ABI.</li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/trufflepig">Truffle Pig</a> - a development tool that provides a simple HTTP API to find and read from Truffle-generated contract files, for use during local development. Serves fresh contract ABIs over http.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mesg-foundation/service-ethereum-contract">Ethereum Contract Service</a> - A MESG Service to interact with any Ethereum contract based on its address and ABI.</li>
+</ul>
+<h1 id="Patterns-amp-Best-Practices"><a href="#Patterns-amp-Best-Practices" class="headerlink" title="Patterns &amp; Best Practices"></a>Patterns &amp; Best Practices</h1><h3 id="Patterns-for-Smart-Contract-Development"><a href="#Patterns-for-Smart-Contract-Development" class="headerlink" title="Patterns for Smart Contract Development"></a>Patterns for Smart Contract Development</h3><ul>
+<li>Dappsys: Safe, simple, and flexible Ethereum contract building blocks<ul>
+<li>has solutions for common problems in Ethereum/Solidity, eg.<ul>
+<li><a target="_blank" rel="noopener" href="https://steemit.com/ethereum/@nexusdev/dapp-a-day-11-whitelist-boring">Whitelisting</a></li>
+<li><a target="_blank" rel="noopener" href="https://steemit.com/ethereum/@nikolai/dapp-a-day-6-upgradeable-tokens">Upgradable ERC20-Token</a></li>
+<li><a target="_blank" rel="noopener" href="https://steemit.com/ethereum/@nexusdev/dapp-a-day-18-erc20-token-vault">ERC20-Token-Vault</a></li>
+<li><a target="_blank" rel="noopener" href="https://steemit.com/ethereum/@nikolai/dapp-a-day-4-access-control-via-auth">Authentication (RBAC)</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dapphub/dappsys">…several more…</a></li>
+</ul>
+</li>
+<li>provides building blocks for the <a target="_blank" rel="noopener" href="https://github.com/makerdao/maker-otc">MakerDAO</a> or <a target="_blank" rel="noopener" href="https://github.com/ryepdx/the-tao">The TAO</a></li>
+<li>should be consulted before creating own, untested, solutions</li>
+<li>usage is described in <a target="_blank" rel="noopener" href="https://steemit.com/@nikolai">Dapp-a-day 1-10</a> and <a target="_blank" rel="noopener" href="https://steemit.com/@nexusdev">Dapp-a-day 11-25</a></li>
+</ul>
+</li>
+<li>OpenZeppelin Contracts: An open framework of reusable and secure smart contracts in the Solidity language.<ul>
+<li>Likely the most widely-used libraries and smart contracts</li>
+<li>Similar to Dappsys, more integrated into Truffle framework</li>
+<li><a target="_blank" rel="noopener" href="https://blog.openzeppelin.com/">Blog about Best Practices with Security Audits</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/androlo/solidity-workshop">Advanced Workshop with Assembly</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@ChrisLundkvist/exploring-simpler-ethereum-multisig-contracts-b71020c19037">Simpler Ethereum Multisig</a> - especially section <em>Benefits</em></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/cryptofinlabs/audit-checklist">CryptoFin Solidity Auditing Checklist</a> - A checklist of common findings, and issues to watch out for when auditing a contract for a mainnet launch.</li>
+<li>aragonOS: A smart contract framework for building DAOs, Dapps and protocols<ul>
+<li>Upgradeability: Smart contracts can be upgraded to a newer version</li>
+<li>Permission control: By using the <code>auth</code> and <code>authP</code> modifiers, you can protect functionality so only other apps or entities can access it</li>
+<li>Forwarders: aragonOS apps can send their intent to perform an action to other apps, so that intent is forwarded if a set of requirements are met</li>
+</ul>
+</li>
+</ul>
+<h2 id="Upgradeability"><a href="#Upgradeability" class="headerlink" title="Upgradeability"></a>Upgradeability</h2><ul>
+<li>Blog von Elena Dimitrova, Dev at colony.io<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.colony.io/writing-more-robust-smart-contracts-99ad0a11e948">https://blog.colony.io/writing-more-robust-smart-contracts-99ad0a11e948</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.colony.io/writing-upgradeable-contracts-in-solidity-6743f0eecc88">https://blog.colony.io/writing-upgradeable-contracts-in-solidity-6743f0eecc88</a></li>
+</ul>
+</li>
+<li>Aragon research blog<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.aragon.org/library-driven-development-in-solidity-2bebcaf88736">Library driven development</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.aragon.org/advanced-solidity-code-deployment-techniques-dc032665f434/">Advanced Solidity code deployment techniques</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://blog.openzeppelin.com/proxy-libraries-in-solidity-79fbe4b970fd/">OpenZeppelin on Proxy Libraries</a></li>
+</ul>
+<h2 id="Infrastructure"><a href="#Infrastructure" class="headerlink" title="Infrastructure"></a>Infrastructure</h2><h2 id="Ethereum-Clients"><a href="#Ethereum-Clients" class="headerlink" title="Ethereum Clients"></a>Ethereum Clients</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.pantheon.pegasys.tech/en/latest/">Pantheon</a> - Java client by PegaSys</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethereum/go-ethereum/wiki/geth">Geth</a> - Go client</li>
+<li><a target="_blank" rel="noopener" href="https://www.parity.io/">Parity</a> - Rust client</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethereum/aleth">Aleth</a> - C++ client</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/NethermindEth/nethermind">Nethermind</a> - .NET Core client</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethereum/pyethapp">Pyethapp</a> - Python client using <a target="_blank" rel="noopener" href="https://github.com/ethereum/pyethereum">pyethereum</a></li>
+<li><a target="_blank" rel="noopener" href="https://infura.io/">Infura</a> - A managed service providing Ethereum client standards-compliant APIs</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethereum/trinity">Trinity</a> - Python client using <a target="_blank" rel="noopener" href="https://github.com/ethereum/py-evm">py-evm</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethereumjs/ethereumjs-client">Ethereumjs</a> - JS client using <a target="_blank" rel="noopener" href="https://github.com/ethereumjs/ethereumjs-vm">ethereumjs-vm</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethereum/ethereumj">Ethereumj</a> - Java client by the Ethereum Foundation</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ether-camp/ethereum-harmony">Harmony</a> - Java client by EtherCamp</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dapphub/dapptools/tree/master/src/seth">Seth</a> - Seth is an Ethereum client tool—like a “MetaMask for the command line”</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/musteka-la/mustekala">Mustekala</a> - Ethereum Light Client project of Metamask.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/exthereum/blockchain">Exthereum</a> - Elixir client</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/energywebfoundation/energyweb-ui">EWF Parity</a> - Energy Web Foundation client for the Tobalaba test network</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jpmorganchase/quorum">Quorum</a> - A permissioned implementation of Ethereum supporting data privacy by <a target="_blank" rel="noopener" href="https://www.jpmorgan.com/quorum">JP Morgan</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mana-ethereum/mana">Mana</a> - Ethereum full node implementation written in Elixir.</li>
+</ul>
+<h2 id="Storage"><a href="#Storage" class="headerlink" title="Storage"></a>Storage</h2><ul>
+<li>IPFS</li>
+</ul>
+<p>  - Decentralised storage and file referencing</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/IPFS-Store">IPFS-Store</a> - IPFS Storage service with added search capability</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/orbitdb/orbit-db">OrbitDB</a> - Decentralised database on top of IPFS</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ipfs/js-ipfs-http-client">JS IPFS API</a> - A client library for the IPFS HTTP API, implemented in JavaScript.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/RTradeLtd/Temporal">TEMPORAL</a> - Easy to use API into IPFS and other distributed/decentralised storage protocols</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://swarm-gateways.net/">Swarm</a> - Distributed storage platform and content distribution service, a native base layer service of the Ethereum web3 stack</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://infura.io/">Infura</a> - A managed IPFS API Gateway and pinning service</p>
+</li>
+</ul>
+<h2 id="Messaging"><a href="#Messaging" class="headerlink" title="Messaging"></a>Messaging</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethereum/wiki/wiki/Whisper">Whisper</a> - Communication protocol for DApps to communicate with each other, a native base layer service of the Ethereum web3 stack</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethereum/devp2p/blob/master/devp2p.md">DEVp2p Wire Protocol</a> - Peer-to-peer communications between nodes running Ethereum/Whisper</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethereum/pydevp2p">Pydevp2p</a> - Python implementation of the RLPx network layer</li>
+</ul>
+<h2 id="Testing-Tools"><a href="#Testing-Tools" class="headerlink" title="Testing Tools"></a>Testing Tools</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://truffleframework.com/teams">Truffle Teams</a> - Zero-Config continuous integration for truffle projects.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/0xProject/0x-monorepo/tree/development/packages/sol-coverage">Solidity code coverage</a> - Solidity code coverage tool</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sc-forks/solidity-coverage">Solidity coverage</a> - Alternative code coverage for Solidity smart-contracts</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/EricR/sol-function-profiler">Solidity function profiler</a> - Solidity contract function profiler</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Aniket-Engg/sol-profiler">Sol-profiler</a> - Alternative and updated Solidity smart contract profiler</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hillstreetlabs/espresso">Espresso</a> - Speedy, parallelised, hot-reloading solidity test framework</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethereum/eth-tester">Eth tester</a> - Tool suite for testing Ethereum applications</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/f-o-a-m/cliquebait">Cliquebait</a> - Simplifies integration and accepting testing of smart contract applications with docker instances that closely resembles a real blockchain network</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dapphub/dapptools/tree/master/src/hevm">Hevm</a> - The hevm project is an implementation of the Ethereum virtual machine (EVM) made specifically for unit testing and debugging smart contracts</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/fergarrui/ethereum-graph-debugger">Ethereum graph debugger</a> - Solidity graphical debugger</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Tenderly/tenderly-cli">Tenderly CLI</a> - Speed up your development with human readable stack traces</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/protofire/solhint">Solhint</a> - Solidity linter that provides security, style guide and best practice rules for smart contract validation</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/duaraghav8/Ethlint">Ethlint</a> - Linter to identify and fix style &amp; security issues in Solidity, formerly Solium</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dteiml/decode">Decode</a> - npm package which parses tx’s submitted to a local testrpc node to make them more readable and easier to understand</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/rkalis/truffle-assertions">truffle-assertions</a> - An npm package with additional assertions and utilities used in testing Solidity smart contracts with truffle. Most importantly, it adds the ability to assert whether specific events have (not) been emitted.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Lamarkaz/psol">Psol</a> - Solidity lexical preprocessor with mustache.js-style syntax, macros, conditional compilation and automatic remote dependency inclusion.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/merklejerk/solpp">solpp</a> - Solidity preprocessor and flattener with a comprehensive directive and expression language, high precision math, and many useful helper functions.</li>
+<li><a target="_blank" rel="noopener" href="https://flightwallet.org/decode-eth-tx/">Decode and Publish</a> – Decode and publish raw ethereum tx. Similar to <a target="_blank" rel="noopener" href="https://live.blockcypher.com/btc-testnet/decodetx/">https://live.blockcypher.com/btc-testnet/decodetx/</a></li>
+<li><a target="_blank" rel="noopener" href="https://getdoppelganger.io/">Doppelgänger</a> - a library for mocking smart contract dependencies during unit testing.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/wighawag/rocketh">rocketh</a> - A simple lib to test ethereum smart contract that allow to use whatever web3 lib and test runner you choose.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/cobraframework/pytest-cobra">pytest-cobra</a> - PyTest plugin for testing smart contracts for Ethereum blockchain.</li>
+</ul>
+<h2 id="Security-Tools"><a href="#Security-Tools" class="headerlink" title="Security Tools"></a>Security Tools</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://mythx.io/">MythX</a> - Security verification platform and tools ecosystem for Ethereum developers</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ConsenSys/mythril-classic">Mythril Classic</a> - Open-source EVM bytecode security analysis tool</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/melonproject/oyente">Oyente</a> - Alternative static smart contract security analysis</li>
+<li><a target="_blank" rel="noopener" href="https://securify.chainsecurity.com/">Securify</a> - Security scanner for Ethereum smart contracts</li>
+<li><a target="_blank" rel="noopener" href="https://tool.smartdec.net/">SmartCheck</a> - Static smart contract security analyzer</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/comaeio/porosity">Porosity</a> - Decompiler and Security Analysis tool for Blockchain-based Ethereum Smart-Contracts</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/trailofbits/ethersplay">Ethersplay</a> - EVM disassembler</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Arachnid/evmdis">Evmdis</a> - Alternative EVM disassembler</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/IC3Hydra/Hydra">Hydra</a> - Framework for cryptoeconomic contract security, decentralised security bounties</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/raineorshine/solgraph">Solgraph</a> - Visualise Solidity control flow for smart contract security analysis</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/trailofbits/manticore">Manticore</a> - Symbolic execution tool on Smart Contracts and Binaries</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/trailofbits/slither">Slither</a> - A Solidity static analysis framework</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sec-bit/adelaide">Adelaide</a> - The SECBIT static analysis extension to Solidity compiler</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/SRI-CSL/solidity/">solc-verify</a> - A modular verifier for Solidity smart contracts</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sigp/solidity-security-blog">Solidity security blog</a> - Comprehensive list of known attack vectors and common anti-patterns</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sec-bit/awesome-buggy-erc20-tokens">Awesome Buggy ERC20 Tokens</a> - A Collection of Vulnerabilities in ERC20 Smart Contracts With Tokens Affected</li>
+<li><a target="_blank" rel="noopener" href="https://callisto.network/smart-contract-audit/">Free Smart Contract Security Audit</a> - Free smart contract security audits from Callisto Network</li>
+</ul>
+<h2 id="Monitoring"><a href="#Monitoring" class="headerlink" title="Monitoring"></a>Monitoring</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://amberdata.io/">amberdata.io</a> - Provides live monitoring, insights and anomaly detection, token metrics, smart contract audits, graph visualization and blockchain search.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Neufund/smart-contract-watch">Neufund - Smart Contract Watch</a> - A tool to monitor a number of smart contracts and transactions</li>
+<li><a target="_blank" rel="noopener" href="https://scout.cool/">Scout</a> - A live data feed of the activities and event logs of your smart contracts on Ethereum</li>
+<li><a target="_blank" rel="noopener" href="https://tenderly.dev/">Tenderly</a> - A platform that gives users reliable smart contract monitoring and alerting in the form of a web dashboard without requiring users to host or maintain infrastructure</li>
+<li><a target="_blank" rel="noopener" href="https://www.chainlyt.io/main/dashboard/contract">Chainlyt</a> - Explore smart contracts with decoded transaction data, see how the contract is used and search transactions with specific function calls</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/poanetwork/blockscout">BlockScout</a> - A tool for inspecting and analyzing EVM based blockchains. The only full featured blockchain explorer for Ethereum networks.</li>
+</ul>
+<h2 id="Other-Miscellaneous-Tools"><a href="#Other-Miscellaneous-Tools" class="headerlink" title="Other Miscellaneous Tools"></a>Other Miscellaneous Tools</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://hack.aragon.org/docs/apm.html">aragonPM</a> - a decentralized package manager powered by aragonOS and Ethereum. aragonPM enables decentralized governance over package upgrades, removing centralized points of failure.</p>
+</li>
+<li><p>Truffle boxes</p>
+</li>
+</ul>
+<p>  - Packaged components for building DApps fast.</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/endless-nameless-inc/cheshire">Cheshire</a> - A local sandbox implementation of the CryptoKitties API and smart contracts, available as a Truffle Box</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://solidity.readthedocs.io/en/latest/using-the-compiler.html?highlight=bin">Solc</a> - Solidity compiler</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/0xProject/0x-monorepo/tree/v2-prototype/packages/sol-compiler">Sol-compiler</a> - Project-level Solidity compiler</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/pubkey/solidity-cli">Solidity cli</a> - Compile solidity-code faster, easier and more reliable</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/poanetwork/solidity-flattener">Solidity flattener</a> - Combine solidity project to flat file utility. Useful for visualizing imported contracts or for verifying your contract on Etherscan</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/RyuuGan/sol-merger">Sol-merger</a> - Alternative, merges all imports into single file for solidity contracts</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ethereumjs/rlp">RLP</a> - Recursive Length Prefix Encoding in JavaScript</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/protofire/eth-cli">eth-cli</a> - A collection of CLI tools to help with ethereum learning and development</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/wealdtech/ethereal">Ethereal</a> - Ethereal is a command line tool for managing common tasks in Ethereum</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/pubkey/eth-crypto">Eth crypto</a> - Cryptographic javascript-functions for Ethereum and tutorials to use them with web3js and solidity</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/paritytech/parity-signer">Parity Signer</a> - mobile app allows signing transactions</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://py-eth.com/">py-eth</a> - Collection of Python tools for the Ethereum ecosystem</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/alcuadrado/truffle-flattener">truffle-flattener</a> - Concats solidity files developed under Truffle with all of their dependencies</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/dteiml/decode">Decode</a> - npm package which parses tx’s submitted to a local testrpc node to make them more readable and easier to understand</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ethereum-ts/TypeChain">TypeChain</a> - Typescript bindings for Ethereum smartcontracts</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://ethsum.netlify.com/">EthSum</a> - A Simple Ethereum Address Checksum Tool</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/digitaldonkey/ethereum-php-eventlistener">PHP based Blockchain indexer</a> - allows indexing blocks or listening to Events in PHP</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/JoinColony/purser">Purser</a> - JavaScript universal wallet tool for Ethereum-based wallets. Supports software, hardware, and Metamask – brings all wallets into a consistent and predictable interface for dApp development.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/JoinColony/node-metamask">Node-Metamask</a> - Connect to MetaMask from node.js</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/OpenZeppelin/solidity-docgen">Solidity-docgen</a> - Documentation generator for Solidity projects</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/blockchain-etl/ethereum-etl">Ethereum ETL</a> - Export Ethereum blockchain data to CSV or JSON files</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/prettier-solidity/prettier-plugin-solidity">prettier-plugin-solidity</a> - Prettier plugin for formatting Solidity code</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://eth-toolbox.com/">EthToolbox</a> - A web app with off-chain tools for Ethereum developers. EC recovery, address formatter, unit converter, hash functions, keys generator, etc.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Nethereum/Unity3dSimpleSample">Unity3dSimpleSample</a> - Ethereum and Unity integration demo</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Nethereum/Nethereum.Flappy">Flappy</a> - Ethereum and Unity integration demo/sample</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Nethereum/Wonka">Wonka</a> - Nethereum business rules engine demo/sample</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Crypto-Punkers/resolver-engine">Resolver-Engine</a> - A set of tools to standarize Solidity import and artifact resolution in frameworks.</p>
+</li>
+</ul>
+<h2 id="Smart-Contract-Standards-amp-Libraries"><a href="#Smart-Contract-Standards-amp-Libraries" class="headerlink" title="Smart Contract Standards &amp; Libraries"></a>Smart Contract Standards &amp; Libraries</h2><h3 id="ERCs-The-Ethereum-Request-for-Comment-repository"><a href="#ERCs-The-Ethereum-Request-for-Comment-repository" class="headerlink" title="ERCs - The Ethereum Request for Comment repository"></a><a target="_blank" rel="noopener" href="https://eips.ethereum.org/erc">ERCs</a> - The Ethereum Request for Comment repository</h3><ul>
+<li>Tokens<ul>
+<li><a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-20">ERC-20</a> - Original token contract for fungible assets</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethereum/eips/issues/721">ERC-721</a> - Token standard for non-fungible assets</li>
+<li><a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-777">ERC-777</a> - An improved token standard for fungible assets</li>
+<li><a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-918">ERC-918</a> - Mineable Token Standard</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-165">ERC-165</a> - Creates a standard method to publish and detect what interfaces a smart contract implements.</li>
+<li><a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-725">ERC-725</a> - Proxy contract for key management and execution, to establish a Blockchain identity.</li>
+<li><a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-173">ERC-173</a> - A standard interface for ownership of contracts</li>
+</ul>
+<h3 id="Popular-Smart-Contract-Libraries"><a href="#Popular-Smart-Contract-Libraries" class="headerlink" title="Popular Smart Contract Libraries"></a>Popular Smart Contract Libraries</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/OpenZeppelin/openzeppelin-solidity">Zeppelin</a> - Contains tested reusable smart contracts like <a target="_blank" rel="noopener" href="https://openzeppelin.org/api/docs/math_SafeMath.html">SafeMath</a> and ZeppelinOS <a target="_blank" rel="noopener" href="https://github.com/zeppelinos/zos">library</a> for smart contract upgradeability</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/cryptofinlabs/cryptofin-solidity">cryptofin-solidity</a> - A collection of Solidity libraries for building secure and gas-efficient smart contracts on Ethereum.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Modular-Network/ethereum-libraries">Modular Libraries</a> - A group of packages built for use on blockchains utilising the Ethereum Virtual Machine</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/bokkypoobah/BokkyPooBahsDateTimeLibrary">DateTime Library</a> - A gas-efficient Solidity date and time library</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/aragon/aragon">Aragon</a> - DAO protocol. Contains <a target="_blank" rel="noopener" href="https://github.com/aragon/aragonOS">aragonOS smart contract framework</a> with focus on upgradeability and governance</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/daostack/arc">ARC</a> - an operating system for DAOs and the base layer of the DAO stack.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/0xProject">0x</a> - DEX protocol</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sec-bit/tokenlibs-with-proofs">Token Libraries with Proofs</a> - Contains correctness proofs of token contracts wrt. given specifications and high-level properties</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/provable-things/ethereum-api">Provable API</a> - Provides contracts for using the Provable service, allowing for off-chain actions, data-fetching, and computation</li>
+</ul>
+<h2 id="Developer-Guides-for-2nd-Layer-Infrastructure"><a href="#Developer-Guides-for-2nd-Layer-Infrastructure" class="headerlink" title="Developer Guides for 2nd Layer Infrastructure"></a>Developer Guides for 2nd Layer Infrastructure</h2><h3 id="Scalability"><a href="#Scalability" class="headerlink" title="Scalability"></a>Scalability</h3><h3 id="Payment-State-Channels"><a href="#Payment-State-Channels" class="headerlink" title="Payment/State Channels"></a>Payment/State Channels</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@matthewdif/ethereum-payment-channel-in-50-lines-of-code-a94fad2704bc">Ethereum Payment Channel</a> - Ethereum Payment Channel in 50 lines of code</li>
+<li><a target="_blank" rel="noopener" href="https://microraiden.readthedocs.io/">µRaiden Documentation</a> - Guides and Samples for µRaiden Sender/Receiver Use Cases</li>
+</ul>
+<h3 id="Plasma"><a href="#Plasma" class="headerlink" title="Plasma"></a>Plasma</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ethsociety/learn-plasma">Learn Plasma</a> - Website as Node application that was started at the 2018 IC3-Ethereum Crypto Boot Camp at Cornell University, covering all Plasma variants (MVP/Cash/Debit)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/omisego/plasma-mvp">Plasma MVP</a> - OmiseGO’s research implementation of Minimal Viable Plasma</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/kyokan/plasma">Plasma MVP Golang</a> - Golang implementation and extension of the Minimum Viable Plasma specification</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/omisego/plasma-cash">Plasma Cash</a> - Simple Plasma Cash implementation</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mesg-foundation/application-plasma-exit">Plasma Exit</a> - Automatically watch and challenge or exit from Omisego Plasma Network when needed.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mesg-foundation/service-plasma-omisego-watcher">Plasma OmiseGo Watcher</a> - Interact with Plasma OmiseGo network and notifies for any byzantine events.</li>
+</ul>
+<h3 id="Side-Chains"><a href="#Side-Chains" class="headerlink" title="Side-Chains"></a>Side-Chains</h3><ul>
+<li>POA Network<ul>
+<li><a target="_blank" rel="noopener" href="https://bridge.poa.net/">POA Bridge</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/poanetwork/bridge-ui">POA Bridge UI</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/poanetwork/poa-bridge-contracts">POA Bridge Contracts</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/loomnetwork">Loom Network</a></li>
+</ul>
+<h3 id="Privacy-Confidentiality"><a href="#Privacy-Confidentiality" class="headerlink" title="Privacy / Confidentiality"></a>Privacy / Confidentiality</h3><h3 id="zkSNARKs"><a href="#zkSNARKs" class="headerlink" title="zkSNARKs"></a>zkSNARKs</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Zokrates/ZoKrates">ZoKrates</a> - A toolbox for zkSNARKS on Ethereum</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/AztecProtocol/AZTEC">The AZTEC Protocol</a> - Confidential transactions on the Ethereum network, implementation is live on the Ethereum main-net</li>
+<li>Proxy Re-encryption (PRE) ** <a target="_blank" rel="noopener" href="https://github.com/nucypher/nucypher">NuCypher Network</a> - A proxy re-encryption network to empower data privacy in decentralized systems ** <a target="_blank" rel="noopener" href="https://github.com/nucypher/pyumbral">pyUmbral</a> - Threshold proxy re-encryption cryptographic library</li>
+<li>Fully Homomorphic Encryption (FHE) ** <a target="_blank" rel="noopener" href="https://github.com/nucypher/nufhe">NuFHE</a> - GPU accelerated FHE library</li>
+</ul>
+<h3 id="Prebuilt-UI-Components"><a href="#Prebuilt-UI-Components" class="headerlink" title="Prebuilt UI Components"></a>Prebuilt UI Components</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://ui.aragon.org/">aragonUI</a> - A React library including Dapp components</li>
+<li><a target="_blank" rel="noopener" href="https://components.bounties.network/">components.bounties.network</a> - A React library including Dapp components</li>
+<li><a target="_blank" rel="noopener" href="https://lorikeet.design/">lorikeet.design</a> - A React library including Dapp components</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/decentraland/ui">ui.decentraland.org</a> - A React library including Dapp components</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/austintgriffith/dapparatus">dapparatus</a> - Reusable React Dapp components</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/MetaMask/metamask-extension/tree/develop/ui/app/components">Metamask ui</a> - Metamask React Components</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Nethereum/Nethereum.DappHybrid">DappHybrid</a> - A cross-platform hybrid hosting mechanism for web based decentralised applications</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Nethereum/Nethereum.UI.Desktop">Nethereum.UI.Desktop</a> - Cross-platform desktop wallet sample</li>
+<li><a target="_blank" rel="noopener" href="https://eth-button.github.io/eth-button/">eth-button</a> - Minimalist donation button</li>
+<li><a target="_blank" rel="noopener" href="https://rimble.consensys.design/">Rimble Design System</a> - Adaptable components and design standards for decentralized applications.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ETH/" rel="tag"># ETH</a>
+              <a href="/tags/Ethereum/" rel="tag"># Ethereum</a>
+              <a href="/tags/Tools/" rel="tag"># Tools</a>
+              <a href="/tags/Developer/" rel="tag"># Developer</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/view/ethereum-erc20-publish.html" rel="prev" title="以太坊Solidity开发入门ERC20发币">
+      <i class="fa fa-chevron-left"></i> 以太坊Solidity开发入门ERC20发币
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/view/iPhone-xs-design-guide.html" rel="next" title="iPhone Xs 设计规范">
+      iPhone Xs 设计规范 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ethereum-Developer-Tools-List"><span class="nav-number">1.</span> <span class="nav-text">Ethereum Developer Tools List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Contributions-are-welcome"><span class="nav-number">2.</span> <span class="nav-text">Contributions are welcome!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-of-Contents"><span class="nav-number">3.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#New-developers-start-here"><span class="nav-number">4.</span> <span class="nav-text">New developers start here</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Developer-Tools"><span class="nav-number">5.</span> <span class="nav-text">Developer Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Developing-Smart-Contracts"><span class="nav-number">5.1.</span> <span class="nav-text">Developing Smart Contracts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smart-Contract-Languages"><span class="nav-number">5.2.</span> <span class="nav-text">Smart Contract Languages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Frameworks"><span class="nav-number">5.3.</span> <span class="nav-text">Frameworks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDEs"><span class="nav-number">5.4.</span> <span class="nav-text">IDEs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-tools"><span class="nav-number">5.5.</span> <span class="nav-text">Other tools</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Test-blockchain-networks"><span class="nav-number">6.</span> <span class="nav-text">Test blockchain networks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-Ether-faucets"><span class="nav-number">6.1.</span> <span class="nav-text">Test Ether faucets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Communicating-with-Ethereum"><span class="nav-number">6.2.</span> <span class="nav-text">Communicating with Ethereum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Frontend-Ethereum-APIs"><span class="nav-number">6.3.</span> <span class="nav-text">Frontend Ethereum APIs</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Backend-Ethereum-APIs"><span class="nav-number">7.</span> <span class="nav-text">Backend Ethereum APIs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bootstrap-out-of-box-tools"><span class="nav-number">8.</span> <span class="nav-text">Bootstrap&#x2F;out of box tools</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ethereum-ABI-Application-Binary-Interface-tools"><span class="nav-number">8.1.</span> <span class="nav-text">Ethereum ABI (Application Binary Interface) tools</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Patterns-amp-Best-Practices"><span class="nav-number">9.</span> <span class="nav-text">Patterns &amp; Best Practices</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Patterns-for-Smart-Contract-Development"><span class="nav-number">9.0.1.</span> <span class="nav-text">Patterns for Smart Contract Development</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Upgradeability"><span class="nav-number">9.1.</span> <span class="nav-text">Upgradeability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Infrastructure"><span class="nav-number">9.2.</span> <span class="nav-text">Infrastructure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ethereum-Clients"><span class="nav-number">9.3.</span> <span class="nav-text">Ethereum Clients</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Storage"><span class="nav-number">9.4.</span> <span class="nav-text">Storage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Messaging"><span class="nav-number">9.5.</span> <span class="nav-text">Messaging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing-Tools"><span class="nav-number">9.6.</span> <span class="nav-text">Testing Tools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Security-Tools"><span class="nav-number">9.7.</span> <span class="nav-text">Security Tools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Monitoring"><span class="nav-number">9.8.</span> <span class="nav-text">Monitoring</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-Miscellaneous-Tools"><span class="nav-number">9.9.</span> <span class="nav-text">Other Miscellaneous Tools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smart-Contract-Standards-amp-Libraries"><span class="nav-number">9.10.</span> <span class="nav-text">Smart Contract Standards &amp; Libraries</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ERCs-The-Ethereum-Request-for-Comment-repository"><span class="nav-number">9.10.1.</span> <span class="nav-text">ERCs - The Ethereum Request for Comment repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Popular-Smart-Contract-Libraries"><span class="nav-number">9.10.2.</span> <span class="nav-text">Popular Smart Contract Libraries</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Developer-Guides-for-2nd-Layer-Infrastructure"><span class="nav-number">9.11.</span> <span class="nav-text">Developer Guides for 2nd Layer Infrastructure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scalability"><span class="nav-number">9.11.1.</span> <span class="nav-text">Scalability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Payment-State-Channels"><span class="nav-number">9.11.2.</span> <span class="nav-text">Payment&#x2F;State Channels</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plasma"><span class="nav-number">9.11.3.</span> <span class="nav-text">Plasma</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Side-Chains"><span class="nav-number">9.11.4.</span> <span class="nav-text">Side-Chains</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Privacy-Confidentiality"><span class="nav-number">9.11.5.</span> <span class="nav-text">Privacy &#x2F; Confidentiality</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zkSNARKs"><span class="nav-number">9.11.6.</span> <span class="nav-text">zkSNARKs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prebuilt-UI-Components"><span class="nav-number">9.11.7.</span> <span class="nav-text">Prebuilt UI Components</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="BOBBIE WANG"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">BOBBIE WANG</p>
+  <div class="site-description" itemprop="description">Great Code. Great Life.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wbbme" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wbbme" rel="noopener" target="_blank"><i class="fab fa-github-alt fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://dribbble.com/wbbme" title="Dribbble → https:&#x2F;&#x2F;dribbble.com&#x2F;wbbme" rel="noopener" target="_blank"><i class="fab fa-dribbble fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://behance.net/wbbme" title="Behance → https:&#x2F;&#x2F;behance.net&#x2F;wbbme" rel="noopener" target="_blank"><i class="fab fa-behance fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.paypal.me/wbbme/5" title="Paypal → https:&#x2F;&#x2F;www.paypal.me&#x2F;wbbme&#x2F;5" rel="noopener" target="_blank"><i class="fab fa-paypal fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/wbbme" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;wbbme" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Me@wbb.me" title="E-Mail → mailto:Me@wbb.me"><i class="fab fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.behance.net/" title="https:&#x2F;&#x2F;www.behance.net&#x2F;" rel="noopener" target="_blank">Behance</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://dribbble.com/" title="https:&#x2F;&#x2F;dribbble.com&#x2F;" rel="noopener" target="_blank">Dribbble</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ant.design/" title="https:&#x2F;&#x2F;ant.design&#x2F;" rel="noopener" target="_blank">Ant.design</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://element.eleme.io/" title="https:&#x2F;&#x2F;element.eleme.io&#x2F;" rel="noopener" target="_blank">Element.io</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://color.adobe.com/" title="https:&#x2F;&#x2F;color.adobe.com&#x2F;" rel="noopener" target="_blank">Adobe Color</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://fonts.google.com/" title="https:&#x2F;&#x2F;fonts.google.com&#x2F;" rel="noopener" target="_blank">Google Fonts</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://fontawesome.com/" title="https:&#x2F;&#x2F;fontawesome.com&#x2F;" rel="noopener" target="_blank">Font awesome</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://tutulifestyle.com/" title="https:&#x2F;&#x2F;tutulifestyle.com&#x2F;" rel="noopener" target="_blank">TuTu生活志</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bobbie's Notes</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
