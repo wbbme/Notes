@@ -1,7 +1,7 @@
 /*
- * @Author: BOBBIE WANG 
+ * @Author: BOLBY WANG 
  * @Date: 2021-03-17 20:46:55 
- * @Last Modified by:   BOBBIE WANG 
+ * @Last Modified by:   BOLBY WANG 
  * @Last Modified time: 2021-03-17 20:46:55 
  */
 
@@ -12,25 +12,16 @@
 * {
   box-sizing: border-box;
 }
+/* Import Fonts */
 
-/* Font styles */
-
-@font-face {
-  font-family: "Sk-Modernist";
-  src: url("../assets/fonts/Sk-Modernist-Regular.otf");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Sk-Modernist";
-  src: url("../assets/fonts/Sk-Modernist-Bold.otf");
-  font-weight: 700;
-}
+  @import url('http://fonts.cdnfonts.com/css/mont');
+  @import url('http://fonts.cdnfonts.com/css/polaris');
+                
 
 /* Main styles */
 
 html {
-  font-family: "Sk-Modernist";
+  font-family: "Mont", sans-serif;
 }
 
 main {
@@ -70,15 +61,16 @@ main {
 }
 
 h1 {
+  font-family: "Polaris", sans-serif;
   color: white;
   font-weight: bold;
-  font-size: 3.125em;
+  font-size: 2em;
   padding: 3rem 0 1rem 0;
 }
 
 h3 {
   color: rgba(255, 255, 255, 0.5);
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1.1em;
 }
 
@@ -102,7 +94,7 @@ h3 {
 }
 
 .listItem a:hover svg {
-  fill: #4838ff;
+  fill: #89DFBC;
 }
 
 .listItem[data-item="figma"] a svg path,
@@ -112,11 +104,11 @@ h3 {
 }
 
 .listItem[data-item="figma"] a:hover svg path {
-  fill: #4838ff;
+  fill: #89DFBC;
 }
 
 .listItem[data-item="ui8"] a:hover svg path {
-  fill: #4838ff;
+  fill: #89DFBC;
 }
 
 .listItem[data-item="ui8"] a:hover svg path:last-child {
@@ -124,13 +116,14 @@ h3 {
 }
 
 .listItem[data-item="gumroad"] a:hover svg rect:first-child {
-  fill: #4838ff;
+  fill: #89DFBC;
 }
 
 .copyright {
   margin-top: 11.875rem;
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
+  font-weight: 400;
 }
 
 /* Media queries */
