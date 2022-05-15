@@ -133,6 +133,7 @@ h3 {
 @media (max-width: 450px) {
   .logoImg {
     width: 6rem;
+    border:solid 4px #fff;
   }
 
   h1 {
