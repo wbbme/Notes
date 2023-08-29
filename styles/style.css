@@ -14,9 +14,18 @@
 }
 /* Import Fonts */
 
+  @font-face{font-family:mont;font-style:normal;font-weight:300;src:local('Mont'),url(https://fonts.cdnfonts.com/s/16467/Mont-ExtraLightDEMO.woff) format('woff')}@font-face{font-family:mont;font-style:normal;font-weight:900;src:local('Mont'),url(https://fonts.cdnfonts.com/s/16467/Mont-HeavyDEMO.woff) format('woff')}
+  @font-face {
+    font-family: 'Polaris';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Polaris'), url('https://fonts.cdnfonts.com/s/17881/Polaris.woff') format('woff');
+}
+
+/* 
   @import url('http://fonts.cdnfonts.com/css/mont');
   @import url('http://fonts.cdnfonts.com/css/polaris');
-                
+                 */
 
 /* Main styles */
 
