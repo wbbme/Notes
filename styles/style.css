@@ -4,6 +4,11 @@
  * @Last Modified by:   BOLBY WANG 
  * @Last Modified time: 2021-03-17 20:46:55 
  */
+/* Import Fonts */
+
+@import url('http://fonts.cdnfonts.com/css/mont');
+@import url('http://fonts.cdnfonts.com/css/polaris');
+              
 
 :root {
   --border: 1.5em;
@@ -12,11 +17,6 @@
 * {
   box-sizing: border-box;
 }
-/* Import Fonts */
-
-  @import url('http://fonts.cdnfonts.com/css/mont');
-  @import url('http://fonts.cdnfonts.com/css/polaris');
-                
 
 /* Main styles */
 
