@@ -12,6 +12,11 @@
 * {
   box-sizing: border-box;
 }
+/* Import Fonts */
+
+  @import url('http://fonts.cdnfonts.com/css/mont');
+  @import url('http://fonts.cdnfonts.com/css/polaris');
+                
 
 /* Main styles */
 
