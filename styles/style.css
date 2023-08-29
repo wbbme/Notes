@@ -58,7 +58,7 @@ main {
 .logoImg {
   width: 9.5rem;
   user-select: none;
-  /* border-radius: 30%; */
+  border-radius: 50%;
   border:solid 6px #fff;
 }
 
