@@ -48,7 +48,8 @@ main {
   flex-direction: column;
   width: 100%;
   max-width: 50rem;
-  background-color: rgba(11, 11, 15);
+  background-color: rgba(11, 11, 15, .2);
+  backdrop-filter: blur(15px);
   border-radius: 5%;
   position: relative;
   padding-top: 7rem;
