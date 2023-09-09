@@ -12,20 +12,15 @@
 * {
   box-sizing: border-box;
 }
-/* Import Fonts */
-
-  @font-face{font-family:mont;font-style:normal;font-weight:300;src:local('Mont'),url(https://fonts.cdnfonts.com/s/16467/Mont-ExtraLightDEMO.woff) format('woff')};
-  @font-face{font-family:mont;font-style:normal;font-weight:900;src:local('Mont'),url(https://fonts.cdnfonts.com/s/16467/Mont-HeavyDEMO.woff) format('woff')};
-  @font-face {font-family: 'New Ramen';font-style: normal;font-weight: 400;src: local('New Ramen'), url('https://fonts.cdnfonts.com/s/102909/NewRamen-z8PY4.woff') format('woff')};
-
-  /* @import url('http://fonts.cdnfonts.com/css/mont');
-  @import url('https://fonts.cdnfonts.com/css/new-ramen'); */
-                
 
 /* Main styles */
-
 html {
-  font-family: "Mont", sans-serif;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+a{
+  color: #fff;
+  text-decoration: none;
 }
 
 main {
@@ -62,21 +57,23 @@ main {
 .logoImg {
   width: 9.5rem;
   user-select: none;
-  border-radius: 50%;
-  border:solid 6px #fff;
+  border-radius: 30%;
+  border:solid 5px #fff;
 }
 
 h1 {
-  font-family: "New Ramen", sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   color: white;
-  font-weight: bold;
-  font-size: 2em;
+  font-weight: 700;
+  font-size: 3.125rem;
+  text-transform: uppercase;
   padding: 3rem 0 1rem 0;
 }
 
 h3 {
   color: rgba(255, 255, 255);
   font-weight: 500;
+  text-transform: uppercase;
   font-size: 1.1em;
 }
 
@@ -105,7 +102,7 @@ h3 {
 
 .listItem[data-item="figma"] a svg path,
 .listItem[data-item="ui8"] a svg path,
-.listItem[data-item="gumroad"] a svg rect:first-child {
+.listItem[data-item="YouTube"] a svg rect:first-child {
   transition: fill 0.3s;
 }
 
@@ -121,7 +118,7 @@ h3 {
   fill: white;
 }
 
-.listItem[data-item="gumroad"] a:hover svg rect:first-child {
+.listItem[data-item="YouTube"] a:hover svg rect:first-child {
   fill: #89DFBC;
 }
 
@@ -130,6 +127,7 @@ h3 {
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
   font-weight: 400;
+  text-transform: uppercase;
 }
 
 /* Media queries */
@@ -146,6 +144,9 @@ h3 {
 
   h3 {
     font-size: 0.88rem;
+    margin: auto 8%;
+    text-align: center;
+    line-height: 1.5;
   }
 
   .listItem {
@@ -160,6 +161,9 @@ h3 {
 
   h3 {
     font-size: 0.7744rem;
+    margin: auto 8%;
+    text-align: center;
+    line-height: 1.5;
   }
 
   .list {
