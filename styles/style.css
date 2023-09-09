@@ -84,9 +84,9 @@ h3 {
   margin-top: 2rem;
 }
 
-.list:first-of-type {
+/* .list:first-of-type {
   margin-top: 5rem;
-}
+} */
 
 .listItem {
   padding: 0 1rem;
