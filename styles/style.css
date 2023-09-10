@@ -180,11 +180,11 @@ h3 {
 
 @media (max-height: 768px) {
   .container {
-    padding-top: 1rem;
+    padding-top: 3rem;
   }
 
   .copyright {
-    margin-top: 5rem;
+    margin-top: 2rem;
   }
 }
 
