@@ -60,7 +60,6 @@ main {
   width: 9.5rem;
   user-select: none;
   border-radius: 30%;
-  /* border:solid 5px #fff; */
 }
 
 h1 {
@@ -138,7 +137,6 @@ h3 {
 @media (max-width: 450px) {
   .logoImg {
     width: 6rem;
-    border:solid 4px #fff;
   }
 
   h1 {
